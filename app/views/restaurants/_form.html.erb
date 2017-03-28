@@ -1,7 +1,8 @@
 <%= form_for(restaurant, :html => { multipart: true }) do |f| %>
   <% if restaurant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h4>
 
       <ul>
       <% restaurant.errors.full_messages.each do |message| %>
@@ -13,22 +14,22 @@
 
   <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "Paleo Restaurant" %>
   </div>
 
   <div class="form-group">
     <%= f.label :address %>
-    <%= f.text_field :address, class: "form-control" %>
+    <%= f.text_field :address, class: "form-control", placeholder: "123 Main St, Anytown, NJ 07104" %>
   </div>
 
   <div class="form-group">
     <%= f.label :phone %>
-    <%= f.text_field :phone, class: "form-control" %>
+    <%= f.text_field :phone, class: "form-control", placeholder: "(555) 342-1122" %>
   </div>
 
   <div class="form-group">
     <%= f.label :website %>
-    <%= f.text_field :website, class: "form-control" %>
+    <%= f.text_field :website, class: "form-control", placeholder: "http://www.google.com" %>
   </div>
   
   <div class="form-group">
